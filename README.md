@@ -1,4 +1,15 @@
-Introduction scraping de données
-================================
+# Scraping de données
 
-Ce repo contient les notebooks correspondant au brief [La Plume Libre #3] Extraction de données automatisée pour le site d'une librairie en ligne.
+## Quel est l'objectif du projet ?
+
+Scrape des informations sur des livres depuis https://books.toscrape.com et les stocker dans une base de donnée SQLite.
+
+## Installation
+
+`pip install -r requirements.txt`
+
+## Utilisation
+
+`python main.py`
+
+`python main.py --pages [nombre de pages à scrape]`
