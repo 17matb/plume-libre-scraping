@@ -1,5 +1,7 @@
 from pipelines import pipeline_scraping as ps
+from pipelines import pipeline_api_request as pa
 import argparse
+import inquirer
 
 def main():
     """
@@ -18,6 +20,14 @@ def main():
         # --pages devient args.pages
         args = parser.parse_args()
         ps.run_scraping_pipeline(args.pages)
+
+        question = [inquirer.List('continue', message='Do you want to search for some more books through Google Books\' API', choices=['yes', 'no'])]
+
+        answer = inquirer.prompt(question)
+        if answer['continue'] == 'yes':
+            pa.run_api_request_pipeline()
+        else:
+            print('Exiting...')
 
     # ^C
     except KeyboardInterrupt:

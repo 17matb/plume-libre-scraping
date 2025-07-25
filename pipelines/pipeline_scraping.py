@@ -40,7 +40,7 @@ def run_scraping_pipeline(pages = None):
     print(f'{df_scrape_processed.head()}\n')
 
     print('👀 Creating db and inserting data...\n')
-    insert_data.insert_data(df_scrape_processed)
+    insert_data.insert_scraping_data(df_scrape_processed)
 
 # test
 # run_scraping_pipeline()
