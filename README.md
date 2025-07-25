@@ -6,10 +6,26 @@ Scrape des informations sur des livres depuis https://books.toscrape.com et les 
 
 ## Installation
 
-`pip install -r requirements.txt`
+```bash
+pip install -r requirements.txt
+```
 
 ## Utilisation
 
-`python main.py`
+### Simple :
 
-`python main.py --pages [nombre de pages à scrape]`
+```bash
+python main.py
+```
+
+### Option pages :
+
+```bash
+python main.py --pages <nombre de pages à scrape>
+```
+
+Exemple :
+
+```bash
+python main.py --pages 10
+```

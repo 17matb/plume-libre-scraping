@@ -1,5 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
+import hashlib
+
+def create_book_id(title, price):
+    # on hash le titre et le prix pour obtenir un résultat proche des identifiants google books
+    id = hashlib.md5((title + str(price)).encode('utf-8')).hexdigest()[:12]
+    return id
 
 def get_books_html(url: str) -> BeautifulSoup:
     """Fetch the HTML content of a book page.
@@ -114,10 +120,11 @@ def extract_book_info(book: BeautifulSoup) -> dict:
         dict: A dictionary containing the title, price, rating, and availability of the book.
     """
     book_info = {
+        'book_id': create_book_id(extract_title(book), extract_price(book)), # ajout d'un book_id pour gérer efficacement l'absence de doublons
         'title': extract_title(book),
         'price': extract_price(book),
         'rating': extract_rating(book),
-        'availability': extract_availability(book),
+        'availability': extract_availability(book)
     }
 
     return book_info
