@@ -30,11 +30,11 @@ def get_api_request_data(q = 'food', filter='paid-ebooks', maxResults = 40, orde
     }
 
     response = requests.get(url, params=params)
-    print(response.url)
+    # print(response.url)
 
     # Vérifier le code de statut de la réponse
     response.raise_for_status()
-    print(response)
+    # print(response)
 
     # Récupérer le coeur de la réponse
     data_books_raw = response.json()
